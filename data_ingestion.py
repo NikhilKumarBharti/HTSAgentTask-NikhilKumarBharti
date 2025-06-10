@@ -124,8 +124,8 @@ class HTSDataIngestion:
         """Download HTS General Notes PDF (keeping original functionality)"""
         # Try the official notes endpoint first
         notes_urls = [
-            "https://hts.usitc.gov/reststop/file?filename=notes&release=currentRelease",
-            "https://hts.usitc.gov/current/general-notes.pdf",
+            #"https://hts.usitc.gov/reststop/file?filename=notes&release=currentRelease",
+            "https://hts.usitc.gov/reststop/file?release=currentRelease&filename=General%20Notes",
             f"{self.config.HTS_BASE_URL}/notes" if hasattr(self.config, 'HTS_BASE_URL') else None
         ]
         

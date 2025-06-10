@@ -209,7 +209,7 @@ def main():
                                 if 'Duty Amount:' in line:
                                     duty_amount = float(line.split(':')[1].strip())
                                 elif 'Total Landed Cost:' in line:
-                                    total_cost = float(line.plit(':')[1].strip())
+                                    total_cost = float(line.split(':')[1].strip())
                             
                             results.append({
                                 'HTS Code': row['hts_code'],

@@ -86,7 +86,8 @@ class RAGTool:
             retriever=retriever,
             memory=self.memory,
             return_source_documents=True,
-            verbose=True
+            verbose=True,
+            output_key="answer"
         )
     
     def initialize(self, pdf_path: str = None):
