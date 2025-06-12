@@ -114,7 +114,7 @@ class RAGTool:
             }
         
         try:
-            result = self.qa_chain({
+            result = self.qa_chain.invoke({
                 "question": question,
                 "chat_history": []
             })

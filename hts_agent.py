@@ -164,21 +164,22 @@ Final Answer: [your comprehensive answer]
         else:
             # Simpler prompt for local models
             prompt_template = PromptTemplate.from_template("""
-You are TariffBot, an assistant for U.S. trade and tariff information.
+You are TariffBot, an intelligent assistant for U.S. International Trade Commission data.
 
 Available tools:
 {tools}
 
 Tool names: {tool_names}
 
-Answer the user's question. If you need to use a tool, follow this format:
-
-Question: {input}
-Thought: Let me think about what I need to do.
-Action: [tool name]
-Action Input: [input for the tool]
-Observation: [result from the tool]
-Final Answer: [your answer]
+Use this format:
+Question: the input question
+Thought: think about what to do
+Action: one of [{tool_names}]
+Action Input: the input to the action
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I now know the final answer
+Final Answer: the final answer to the original input question
 
 Question: {input}
 {agent_scratchpad}
@@ -201,8 +202,8 @@ Question: {input}
             handle_parsing_errors=True,
             max_iterations=max_iterations,
             max_execution_time=max_time,
-            return_intermediate_steps=True,
-            early_stopping_method="generate"
+            return_intermediate_steps=True
+            #early_stopping_method="generate"
         )
     
     def process_query(self, query: str) -> str:
